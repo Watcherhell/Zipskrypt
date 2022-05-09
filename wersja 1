@@ -1,0 +1,13 @@
+import os
+import zipfile
+from zipfile import ZipFile
+os.path.join("c:\\users\\user\\pycharmProjects\\kurs no.3\\Obrazki")
+new_arch = zipfile.ZipFile("obrazy.zip", mode="a")
+to_be_zipped = []
+for filename in os.listdir("c:\\users\\user\\pycharmProjects\\kurs no.3\\Obrazki"):
+    if filename[-4:] == '.jpg':
+        to_be_zipped.append(filename)
+input_files = to_be_zipped
+with ZipFile("obrazy.zip", mode="a") as zf:
+    for filename in input_files:
+        zf.write(filename)
