@@ -1,0 +1,6 @@
+import os
+from zipfile import ZipFile
+with ZipFile("obrazy.zip", mode="a") as zf:
+    for filename in os.listdir(os.getcwd()):
+        if filename.endswith(('.jpg')) and filename not in zf.namelist():
+          zf.write(filename)
